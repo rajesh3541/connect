@@ -1,0 +1,8 @@
+host: https://connect.accionbreeze.com/dashboard
+env: qa
+browser: Selenium::WebDriver.for :Chrome
+headless: false
+user_name: rajesh.buddi@accionlabs.com
+password: rajyo@apr2023
+test_user: testuser.connect
+test_pwd: testuser@123
