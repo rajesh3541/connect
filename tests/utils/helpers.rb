@@ -8,16 +8,27 @@ module Helpers
     end
 
     def open_dashboard
-      @driver.get "https://www.google.com/"
-      @driver.find_element(:xpath => "//span[contains(text(),'Sign in')]").click
-      @driver.find_element(:xpath => "//input[@type='email']").send_keys "#{Config["user_name"]}"
-      @driver.find_element(:xpath => "//span[contains(text(), 'Next')]").click
-      sleep 5
-      @driver.find_element(:xpath => "//input[@type= 'password']").send_keys "#{Config["password"]}"
-      sleep 5
-      @driver.find_element(:xpath => "//span[contains(text(), 'Next')]").click
+      if element_present? :xpath => "//button[@id='user-profile']"
+        logged_in = "true"
+      end
       sleep 2
-      @driver.get "#{Config["host"]}"
+      if logged_in != "true"
+        @driver.get "https://www.google.com/"
+        @driver.find_element(:xpath => "//span[contains(text(),'Sign in')]").click
+        @driver.find_element(:xpath => "//input[@type='email']").send_keys "#{Config["user_name"]}"
+        @driver.find_element(:xpath => "//span[contains(text(), 'Next')]").click
+        sleep 5
+        @driver.find_element(:xpath => "//input[@type= 'password']").send_keys "#{Config["password"]}"
+        sleep 5
+        @driver.find_element(:xpath => "//span[contains(text(), 'Next')]").click
+        sleep 2
+        @driver.get "#{Config["host"]}"
+        sleep 2
+        @driver.find_element(:id => "google-login-button").click
+        @driver.find_element(:xpath => "//div[@data-email='#{Config["user_name"]}']").click
+        sleep 5
+        expect(@driver.find_element(:xpath => "//button[@id='user-profile']")).to be_truthy
+      end
     end
 
     def update_test_report
