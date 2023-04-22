@@ -20,4 +20,4 @@ jobs:
           ruby-version: 2.7
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Run automated tests
-        run: testExecute.bat
+        run: ruby /tests/testExecute.bat
