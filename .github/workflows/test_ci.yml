@@ -11,13 +11,18 @@ on:
 
 jobs:
   test:
-    name: test execution
-    runs-on: ubuntu-latest
+    name: rspec test
+    runs-on: windows-latest
     steps:
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v1
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundler install
+      
       - name: Run automated tests
-        run: ruby ./tests/spec/menu_spec.rb
+        run: bundler exec rspec spec/*
