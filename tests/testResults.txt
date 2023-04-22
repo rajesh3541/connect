@@ -1,7 +1,29 @@
-example_id                | status | run_time              |
-------------------------- | ------ | --------------------- |
-./spec/login_spec.rb[1:1] | failed | 1 minute 2.28 seconds |
-./spec/menu_spec.rb[1:1]  | passed | 34.14 seconds         |
-./spec/menu_spec.rb[1:2]  | passed | 1.35 seconds          |
-./spec/menu_spec.rb[1:3]  | passed | 1.31 seconds          |
-./spec/menu_spec.rb[1:4]  | passed | 1.14 seconds          |
+example_id                       | status | run_time              |
+-------------------------------- | ------ | --------------------- |
+./spec/accionites_spec.rb[1:1]   | passed | 38.42 seconds         |
+./spec/accionites_spec.rb[1:2]   | failed | 8.09 seconds          |
+./spec/accionites_spec.rb[1:3]   | passed | 10.5 seconds          |
+./spec/accionites_spec.rb[1:4]   | passed | 10.13 seconds         |
+./spec/innv_summits_spec.rb[1:1] | passed | 36.05 seconds         |
+./spec/innv_summits_spec.rb[1:2] | passed | 5.09 seconds          |
+./spec/innv_summits_spec.rb[1:3] | passed | 17.45 seconds         |
+./spec/innv_summits_spec.rb[1:4] | passed | 1 second              |
+./spec/innv_summits_spec.rb[1:5] | passed | 1.11 seconds          |
+./spec/innv_summits_spec.rb[1:6] | passed | 0.9535 seconds        |
+./spec/innv_summits_spec.rb[1:7] | passed | 0.92047 seconds       |
+./spec/locations_spec.rb[1:1]    | passed | 37.78 seconds         |
+./spec/locations_spec.rb[1:2]    | passed | 2.18 seconds          |
+./spec/locations_spec.rb[1:3]    | passed | 3.16 seconds          |
+./spec/locations_spec.rb[1:4]    | passed | 1.61 seconds          |
+./spec/locations_spec.rb[1:5]    | passed | 10.36 seconds         |
+./spec/locations_spec.rb[1:6]    | passed | 10.22 seconds         |
+./spec/locations_spec.rb[1:7]    | passed | 10.12 seconds         |
+./spec/login_spec.rb[1:1]        | failed | 1 minute 2.28 seconds |
+./spec/menu_spec.rb[1:1]         | passed | 34.14 seconds         |
+./spec/menu_spec.rb[1:2]         | passed | 1.35 seconds          |
+./spec/menu_spec.rb[1:3]         | passed | 1.31 seconds          |
+./spec/menu_spec.rb[1:4]         | passed | 1.14 seconds          |
+./spec/ourWork_spec.rb[1:1]      | passed | 37.85 seconds         |
+./spec/ourWork_spec.rb[1:2]      | passed | 15.19 seconds         |
+./spec/ourWork_spec.rb[1:3]      | passed | 12.12 seconds         |
+./spec/ourWork_spec.rb[1:4]      | passed | 12.16 seconds         |
