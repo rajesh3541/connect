@@ -16,7 +16,7 @@ RSpec.configure do |c|
   c.run_all_when_everything_filtered = true
 end
 
-Config = YAML.load_file '../config.yaml'
+Config = YAML.load_file './config.yaml'
 #ENV['use_ssh'] = Config['use_ssh'].to_s
 shared_context "default" do
   before(:all) do
