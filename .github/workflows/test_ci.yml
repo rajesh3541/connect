@@ -7,7 +7,8 @@
 name: test workflow
 
 on:
-  workflow_call:
+  push:
+    branches: [ "main" ]
 
 jobs:
   test:
@@ -25,4 +26,4 @@ jobs:
           bundler install
       
       - name: Run automated tests
-        run: bundler exec rspec rajesh3541/connect/tests/spec/*
+        run: bundler exec rspec ./tests/spec/*
