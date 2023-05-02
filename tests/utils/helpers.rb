@@ -25,6 +25,7 @@ module Helpers
         @driver.get "#{Config["host"]}"
         sleep 2
         @driver.find_element(:id => "google-login-button").click
+        sleep 5
         @driver.find_element(:xpath => "//div[@data-email='#{Config["user_name"]}']").click
         sleep 5
         expect(@driver.find_element(:xpath => "//button[@id='user-profile']")).to be_truthy
