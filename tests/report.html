@@ -281,13 +281,111 @@ a {
 <div class="results">
 <div id="div_group_1" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_1" class="passed">login test </dt>
-    <script type="text/javascript">moveProgressBar('100.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">verifies the login page </span><span class='duration'>2.78519s</span></dd>
+  <dt id="example_group_1" class="passed">On the Accioners page </dt>
+    <script type="text/javascript">moveProgressBar('3.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies the navigation to accioners page </span><span class='duration'>54.08327s</span></dd>
+    <script type="text/javascript">moveProgressBar('7.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies location filter functionality </span><span class='duration'>9.95768s</span></dd>
+    <script type="text/javascript">moveProgressBar('11.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies role filter functionality </span><span class='duration'>10.02998s</span></dd>
+    <script type="text/javascript">moveProgressBar('14.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies skill filter functionality </span><span class='duration'>9.66732s</span></dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>5.60721 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "1 example, 0 failures";</script>
+<div id="div_group_2" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_2" class="passed">On the Locations Page </dt>
+    <script type="text/javascript">moveProgressBar('18.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies the navigation to innovation summits page </span><span class='duration'>50.68016s</span></dd>
+    <script type="text/javascript">moveProgressBar('22.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies sections available on the page </span><span class='duration'>4.78047s</span></dd>
+    <script type="text/javascript">moveProgressBar('25.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies Year filter functionality </span><span class='duration'>16.80238s</span></dd>
+    <script type="text/javascript">moveProgressBar('29.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies Author filter functionality </span><span class='duration'>2.31470s</span></dd>
+    <script type="text/javascript">moveProgressBar('33.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies the speakers section </span><span class='duration'>0.27038s</span></dd>
+    <script type="text/javascript">moveProgressBar('37.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies that images are available in the Gallery section </span><span class='duration'>0.04727s</span></dd>
+    <script type="text/javascript">moveProgressBar('40.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies that videos are available in the Summit Tech Talk section </span><span class='duration'>0.03268s</span></dd>
+  </dl>
+</div>
+<div id="div_group_3" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_3" class="passed">On the Locations Page </dt>
+    <script type="text/javascript">moveProgressBar('44.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies the navigation to locations page </span><span class='duration'>43.54045s</span></dd>
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('div_group_3');</script>
+    <script type="text/javascript">makeRed('example_group_3');</script>
+    <script type="text/javascript">moveProgressBar('48.1');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">verifies the locations displayed on the page </span>
+      <span class="duration">0.20092s</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>  Failure/Error: expect(loc_list).to include(loc.text)
+    expected [&quot;Hanover&quot;, &quot;London&quot;, &quot;Toronoto&quot;, &quot;Pittsburgh&quot;, &quot;Santa Clara&quot;, &quot;Baltimore&quot;, &quot;Guadalajara&quot;, &quot;Bucharest...bai&quot;, &quot;Pune&quot;, &quot;Bangalore&quot;, &quot;Salcete&quot;, &quot;Hyderabad&quot;, &quot;Bangkok&quot;, &quot;Manila&quot;, &quot;Singapore&quot;, &quot;Kuala Lumpur&quot;] to include &quot;Austin&quot;
+  # ./spec/locations_spec.rb:19:in `block (3 levels) in &lt;top (required)&gt;&#39;
+  # ./spec/locations_spec.rb:18:in `each&#39;
+  # ./spec/locations_spec.rb:18:in `block (2 levels) in &lt;top (required)&gt;&#39;</pre></div>
+        <div class="backtrace"><pre>./spec/locations_spec.rb:19:in `block (3 levels) in &lt;top (required)&gt;&#39;
+./spec/locations_spec.rb:18:in `each&#39;
+./spec/locations_spec.rb:18:in `block (2 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">17</span>        locations = <span class="instance-variable">@driver</span>.find_elements(<span class="symbol">:xpath</span> =&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">//*[@id='global-location-name']</span><span class="delimiter">&quot;</span></span>)
+<span class="linenum">18</span>        locations.each <span class="keyword">do</span> |loc|
+<span class="offending"><span class="linenum">19</span>            <span class="keyword">expect</span>(loc_list).to include(loc.text)</span>
+<span class="linenum">20</span>        <span class="keyword">end</span>
+<span class="linenum">21</span>    <span class="keyword">end</span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('51.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies that each location should have address and print the addresses </span><span class='duration'>3.26639s</span></dd>
+    <script type="text/javascript">moveProgressBar('55.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies location image and map on the page </span><span class='duration'>0.94166s</span></dd>
+    <script type="text/javascript">moveProgressBar('59.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies country filter functionality </span><span class='duration'>9.93151s</span></dd>
+    <script type="text/javascript">moveProgressBar('62.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies state filter functionality </span><span class='duration'>9.60932s</span></dd>
+    <script type="text/javascript">moveProgressBar('66.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies City filter functionality </span><span class='duration'>9.70193s</span></dd>
+  </dl>
+</div>
+<div id="div_group_4" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_4" class="passed">login test </dt>
+    <script type="text/javascript">moveProgressBar('70.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">verify existing user login through google account </span><span class='duration'>75.47901s</span></dd>
+  </dl>
+</div>
+<div id="div_group_5" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_5" class="passed">Menu spec </dt>
+    <script type="text/javascript">moveProgressBar('74.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies if all menu options present </span><span class='duration'>40.98704s</span></dd>
+    <script type="text/javascript">moveProgressBar('77.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies the options available under Our Work menu </span><span class='duration'>0.15704s</span></dd>
+    <script type="text/javascript">moveProgressBar('81.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies the options available under Innovation summit menu </span><span class='duration'>0.34727s</span></dd>
+    <script type="text/javascript">moveProgressBar('85.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies the options available under Knowledge Center menu </span><span class='duration'>0.28362s</span></dd>
+  </dl>
+</div>
+<div id="div_group_6" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_6" class="passed">On the Locations Page </dt>
+    <script type="text/javascript">moveProgressBar('88.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies the navigation to locations page </span><span class='duration'>47.86822s</span></dd>
+    <script type="text/javascript">moveProgressBar('92.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies type filter functionality </span><span class='duration'>14.67038s</span></dd>
+    <script type="text/javascript">moveProgressBar('96.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies CoE filter functionality </span><span class='duration'>11.76390s</span></dd>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">verifies Author filter functionality </span><span class='duration'>11.74265s</span></dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>452.00053 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "27 examples, 1 failure";</script>
 </div>
 </div>
 </body>

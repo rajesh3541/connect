@@ -3,8 +3,8 @@ module Helpers
       Selenium::WebDriver::Support::Select.new(@driver.find_element *args)
     end
 
-    def take_screenshot(file_name)  
-      @driver.save_screenshot "./screenshots/#{file_name}.png"
+    def take_screenshot  
+      @driver.save_screenshot "../screenshots/#{Time.now.strftime("failshot__%d_%m_%Y__%H_%M_%S")}.png"
     end
 
     def open_dashboard
@@ -17,11 +17,11 @@ module Helpers
         @driver.find_element(:xpath => "//span[contains(text(),'Sign in')]").click
         @driver.find_element(:xpath => "//input[@type='email']").send_keys "#{Config["user_name"]}"
         @driver.find_element(:xpath => "//span[contains(text(), 'Next')]").click
-        sleep 5
+        sleep 10
         @driver.find_element(:xpath => "//input[@type= 'password']").send_keys "#{Config["password"]}"
         sleep 5
         @driver.find_element(:xpath => "//span[contains(text(), 'Next')]").click
-        sleep 2
+        sleep 5
         @driver.get "#{Config["host"]}"
         sleep 2
         @driver.find_element(:id => "google-login-button").click
@@ -33,15 +33,17 @@ module Helpers
     end
 
     def update_test_report
-      #system "cd ./reports/"
-      system "ruby ./tests/utils/rakefile"
-      test_report = File.read('./tests/report.html')
+      #system("rm /tests/report.html")
+      #system("rspec --format html --out report.html")
+      test_report = File.read('../tests/report.html')
       report_parse = Nokogiri::HTML(test_report)
+      #system("rm ../reports/report.html")
+      system("scp ../tests/report.html ../reports/")
       test_result = report_parse.css("script").last.to_s
       if (test_result.include? ', 0 failures') == false # if false, there were failures
         open('../reports/diff.diff', 'w') { |f|
           f.puts test_result
-          f.puts "Executed on #{$config['host']}"
+          f.puts "Executed on #{Config['host']}"
         }
       end  
       #system("scp ./tests/report.html ./reports/test-report.html")

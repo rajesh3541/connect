@@ -16,17 +16,17 @@ RSpec.configure do |c|
   c.run_all_when_everything_filtered = true
 end
 
-Config = YAML.load_file './config.yaml'
+Config = YAML.load_file '../config.yaml'
 #ENV['use_ssh'] = Config['use_ssh'].to_s
 shared_context "default" do
   before(:all) do
     @host = Config["host"]
     time = Time.new
-    ss_folder=time.strftime("%b_%d")
+    #ss_folder=time.strftime("%b_%d")
     #FileUtils.mkdir_p './screenshots/#{ss_folder}'
     # use firefox
     if Config["browser"] == "Selenium::WebDriver.for :Firefox"
-      Selenium::WebDriver::Firefox::Service.driver_path = "./drivers/geckodriver.exe"
+      Selenium::WebDriver::Firefox::Service.driver_path = "../drivers/geckodriver.exe"
       capabilities = Selenium::WebDriver::Remote::Capabilities.firefox(accept_insecure_certs: true)
       options = Selenium::WebDriver::Firefox::Options.new
       if Config["headless"] == true
@@ -36,7 +36,7 @@ shared_context "default" do
     end
     # use chrome
     if Config["browser"] == "Selenium::WebDriver.for :Chrome"
-      Selenium::WebDriver::Chrome::Service.driver_path = "./drivers/chromedriver.exe"
+      Selenium::WebDriver::Chrome::Service.driver_path = "../drivers/chromedriver.exe"
       capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(accept_insecure_certs: true)
       options = Selenium::WebDriver::Chrome::Options.new
 
@@ -62,7 +62,7 @@ shared_context "default" do
   end
   
   after(:each) do
-    update_test_report
+    #update_test_report
     expect(@verification_errors).to eq([])
   end
 end
