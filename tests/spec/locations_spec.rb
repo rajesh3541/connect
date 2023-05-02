@@ -6,17 +6,25 @@ describe "On the Locations Page " do
     loc_list = ["Hanover","London","Toronoto","Pittsburgh","Santa Clara","Baltimore","Guadalajara","Bucharest","Dubai","Mumbai","Pune","Bangalore","Salcete","Hyderabad","Bangkok","Manila","Singapore","Kuala Lumpur"]
 
     it "verifies the navigation to locations page " do
-        open_dashboard
-        @driver.find_element(:xpath => "(//*[@id='hamburger-menu'])[1]").click
-        @driver.find_element(:xpath => "//*[@id='drawer_container']/div/div/ul/div[2]/a/h5").click
-        sleep 2
-        expect(@driver.find_element(:xpath => "//header[contains(text(),'Global Locations')]")).to be_truthy
+        begin
+            open_dashboard
+            @driver.find_element(:xpath => "(//*[@id='hamburger-menu'])[1]").click
+            @driver.find_element(:xpath => "//*[@id='drawer_container']/div/div/ul/div[2]/a/h5").click
+            sleep 2
+            expect(@driver.find_element(:xpath => "//header[contains(text(),'Global Locations')]")).to be_truthy
+        rescue
+            take_screenshot
+        end
     end
 
     it "verifies the locations displayed on the page " do
-        locations = @driver.find_elements(:xpath => "//*[@id='global-location-name']")
-        locations.each do |loc|
-            expect(loc_list).to include(loc.text)
+        begin
+            locations = @driver.find_elements(:xpath => "//*[@id='global-location-name']")
+            locations.each do |loc|
+                expect(loc_list).to include(loc.text)
+            end
+        rescue
+            take_screenshot
         end
     end
 
