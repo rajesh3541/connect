@@ -20,4 +20,4 @@ jobs:
           bundler install
       
       - name: Run automated tests
-        run: bundler exec rspec ./tests/spec/*
+        run: bundler exec ./tests/rake
