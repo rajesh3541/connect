@@ -2,6 +2,6 @@
 *.log
 
 # ignore ALL files in ANY directory named temp
-drivers/
+#drivers/
 screenshots/
 reports/

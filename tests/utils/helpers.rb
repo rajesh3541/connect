@@ -4,7 +4,7 @@ module Helpers
     end
 
     def take_screenshot(file_name)  
-      @driver.save_screenshot "../screenshots/#{file_name}.png"
+      @driver.save_screenshot "./screenshots/#{file_name}.png"
     end
 
     def open_dashboard
@@ -32,9 +32,9 @@ module Helpers
     end
 
     def update_test_report
-      system "cd ../reports/"
-      system "ruby ../tests/utils/rakefile"
-      test_report = File.read('../tests/report.html')
+      #system "cd ./reports/"
+      system "ruby ./tests/utils/rakefile"
+      test_report = File.read('./tests/report.html')
       report_parse = Nokogiri::HTML(test_report)
       test_result = report_parse.css("script").last.to_s
       if (test_result.include? ', 0 failures') == false # if false, there were failures
@@ -43,7 +43,7 @@ module Helpers
           f.puts "Executed on #{$config['host']}"
         }
       end  
-      system("scp ../tests/report.html ../reports/test-report.html")
+      #system("scp ./tests/report.html ./reports/test-report.html")
     end
     
     def element_present? *args
