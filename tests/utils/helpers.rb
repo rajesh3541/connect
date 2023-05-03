@@ -4,7 +4,7 @@ module Helpers
     end
 
     def take_screenshot(file_name)  
-      @driver.save_screenshot "./screenshots/#{file_name}.png"
+      @driver.save_screenshot "../screenshots/#{Time.now.strftime("failshot__%d_%m_%Y__%H_%M_%S")}.png"
     end
 
     def open_dashboard
