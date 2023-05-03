@@ -2,7 +2,7 @@ name: test workflow
 
 on:
   push:
-    branches: [ "main","connect_qa" ]
+    branches: [ "main", "connect_qa" ]
 
 jobs:
   test:
