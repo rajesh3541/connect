@@ -4,7 +4,7 @@ module Helpers
     end
 
     def take_screenshot  
-      @driver.save_screenshot "../screenshots/#{Time.now.strftime("failshot__%d_%m_%Y__%H_%M_%S")}.png"
+      @driver.save_screenshot "./screenshots/#{Time.now.strftime("failshot__%d_%m_%Y__%H_%M_%S")}.png"
     end
 
     def open_dashboard
@@ -35,13 +35,13 @@ module Helpers
     def update_test_report
       #system("rm /tests/report.html")
       #system("rspec --format html --out report.html")
-      test_report = File.read('../tests/report.html')
+      test_report = File.read('./tests/report.html')
       report_parse = Nokogiri::HTML(test_report)
-      #system("rm ../reports/report.html")
-      system("scp ../tests/report.html ../reports/")
+      #system("rm ./reports/report.html")
+      system("scp ./tests/report.html ./reports/")
       test_result = report_parse.css("script").last.to_s
       if (test_result.include? ', 0 failures') == false # if false, there were failures
-        open('../reports/diff.diff', 'w') { |f|
+        open('./reports/diff.diff', 'w') { |f|
           f.puts test_result
           f.puts "Executed on #{Config['host']}"
         }
